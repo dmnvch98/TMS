@@ -1,4 +1,4 @@
-package teachmeskills;
+package com.teachmeskills;
 
 public class Main {
     public static void main(String[] args) {
