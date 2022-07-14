@@ -2,7 +2,6 @@ package com.teachmeskills.lesson4;
 
 import java.util.Scanner;
 
-
 public final class Utils {
     public final static String INCORRECT = "Вы ввели неверное значение";
     public static int askUserToEnterData(String messageToPrint){
