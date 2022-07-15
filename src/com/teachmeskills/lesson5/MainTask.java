@@ -1,5 +1,6 @@
 package com.teachmeskills.lesson5;
 
+import static com.teachmeskills.lesson5.TestData.triDimensionalArr;
 import static com.teachmeskills.lesson5.Utils.*;
 
 public class MainTask {
@@ -7,20 +8,6 @@ public class MainTask {
 
     public int[][][] increaseEachElementByEnteredNum() {
         int enteredValue = askUserToEnterData(ASK_TO_INCREASE);
-        int[][][] triDimensionalArr = new int[][][]{
-                {
-                        {3, 2, 5},
-                        {5, 7, 1}
-                },
-                {
-                        {3, 2, 5},
-                        {5, 7, 1},
-                        {9, 2, 6}
-                },
-                {
-                        {8, 1, 4},
-                }
-        };
 
         for (int[][] twoDimensionalArr : triDimensionalArr) {
             for (int[] oneDimensionalArr : twoDimensionalArr) {
