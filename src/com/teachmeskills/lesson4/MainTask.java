@@ -1,4 +1,5 @@
 package com.teachmeskills.lesson4;
+
 import java.util.Arrays;
 
 import static com.teachmeskills.lesson4.Utils.*;
@@ -18,13 +19,13 @@ public class MainTask {
     public final static String FIRST_ARR = "Среднее арифметическое больше в первом массиве: ";
     public final static String SECOND_ARR = "Среднее арифметическое больше во втором массиве: ";
 
-    public void ifArrayHasEnteredValue(){
+    public void ifArrayHasEnteredValue() {
         int[] intArray = new int[]{1, 4, 2, 5, 3, 7, 5, 11, 33, 4};
         System.out.println(INITIAL_ARRAY + Arrays.toString(intArray));
         int enteredValue = askUserToEnterData(IF_EXIST);
 
-        for (int arrElement: intArray) {
-            if (enteredValue == arrElement){
+        for (int arrElement : intArray) {
+            if (enteredValue == arrElement) {
                 System.out.println(CONSIST + enteredValue + '\n');
                 return;
             }
@@ -32,7 +33,7 @@ public class MainTask {
         System.out.println(NOT_CONSIST + enteredValue + '\n');
     }
 
-    public void deleteElementIfArrayHasIt(){
+    public void deleteElementIfArrayHasIt() {
         int[] intArray = new int[]{1, 4, 2, 5, 3, 7, 5, 11, 33, 4, 4};
         System.out.println(INITIAL_ARRAY + Arrays.toString(intArray));
         int numbersQTY = 0;
@@ -44,7 +45,7 @@ public class MainTask {
             }
         }
 
-        if (numbersQTY != 0){
+        if (numbersQTY != 0) {
             int[] resultArr = new int[intArray.length - numbersQTY];
             int counter = 0;
             for (int arrElement : intArray) {
@@ -54,13 +55,12 @@ public class MainTask {
                 }
             }
             System.out.println(RESULT_ARRAY + Arrays.toString(resultArr) + '\n');
-        }
-        else {
+        } else {
             System.out.println(NOT_CONSIST + enteredValue + '\n');
         }
     }
 
-    public void getMinMaxAverageNums(){
+    public void getMinMaxAverageNums() {
         int arrLength = askUserToEnterData(ASK_ARR_LENGTH);
         int[] intArr = new int[arrLength];
 
@@ -76,7 +76,7 @@ public class MainTask {
                 Arrays.toString(intArr) + '\n');
     }
 
-    public void compareAverageNums(){
+    public void compareAverageNums() {
         int[] intFirstArr = new int[]{1, 4, 2, 5, 3, 7, 5, 11, 33, 4, 4};
         int[] intSecondArr = new int[]{23, 11, 17, 5};
         System.out.println(Arrays.toString(intFirstArr) + '\n' +
@@ -84,7 +84,7 @@ public class MainTask {
         int firstArrAvg = sumArrNums(intFirstArr) / intFirstArr.length;
         int secondArrAvg = sumArrNums(intSecondArr) / intSecondArr.length;
 
-        if (firstArrAvg > secondArrAvg){
+        if (firstArrAvg > secondArrAvg) {
             System.out.println(FIRST_ARR + firstArrAvg + '\n');
         } else if (secondArrAvg > firstArrAvg) {
             System.out.println(SECOND_ARR + secondArrAvg + '\n');

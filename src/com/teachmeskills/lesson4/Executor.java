@@ -12,6 +12,6 @@ public class Executor {
         additionalTask.createTwoArraysInRangeAndEven();
         additionalTask.changeOddIndexesToZeros();
         additionalTask.sortNamesArray();
-        additionalTask.bubbleSort(new int[]{3,1,5,2,9,13,22,77,3,4});
+        additionalTask.bubbleSort(new int[]{3, 1, 5, 2, 9, 13, 22, 77, 3, 4});
     }
 }
