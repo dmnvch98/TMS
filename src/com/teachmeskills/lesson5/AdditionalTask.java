@@ -1,13 +1,12 @@
 package com.teachmeskills.lesson5;
 
-import static com.teachmeskills.lesson5.TestData.triDimensionalArr;
-import static com.teachmeskills.lesson5.TestData.twoDimensionalArr;
+import static com.teachmeskills.lesson5.TestData.*;
 import static com.teachmeskills.lesson5.Utils.bubbleSort;
 
 public class AdditionalTask {
     public int sumMatrixElements() {
         int result = 0;
-        for (int[] oneDimensionalArr : twoDimensionalArr) {
+        for (Integer[] oneDimensionalArr : twoDimensionalArr) {
             for (int element : oneDimensionalArr) {
                 result += element;
             }
@@ -28,10 +27,23 @@ public class AdditionalTask {
         return diagonalNums;
     }
 
-    public int[][] sortMatrix() {
-        for (int[] oneDimensionalArr : twoDimensionalArr) {
+    public Integer[][] sortMatrix() {
+        for (Integer[] oneDimensionalArr : twoDimensionalArr) {
             bubbleSort(oneDimensionalArr);
         }
         return twoDimensionalArr;
+    }
+
+    public Integer[][] multipleMatrix() {
+        Integer[][] resultArr = new Integer[3][3];
+        for (int i = 0; i < firstMatrix.length; i++) {
+            for (int j = 0; j < secondMatrix.length - 1; j++) {
+                resultArr[i][j] = 0;
+                for (int k = 0; k < resultArr.length; k++) {
+                    resultArr[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+                }
+            }
+        }
+        return resultArr;
     }
 }

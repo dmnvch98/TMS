@@ -9,9 +9,9 @@ public class Executor {
         printMatrix(mainTask.fillChessBoard());
 
         AdditionalTask additionalTask = new AdditionalTask();
+        print(additionalTask.sumMatrixElements());
         printArray(additionalTask.displayArrDiagonal());
-        printComplexArr((additionalTask.sortMatrix()));
-
-
+        printMatrix((additionalTask.sortMatrix()));
+        printMatrix(additionalTask.multipleMatrix());
     }
 }

@@ -41,9 +41,10 @@ public final class Utils {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
-    public static int[] bubbleSort(int[] intArr) {
+    public static Integer[] bubbleSort(Integer[] intArr) {
         for (int i = 0; i < intArr.length; i++) {
             for (int k = 0; k < intArr.length - 1; k++) {
                 if (intArr[k] > intArr[k + 1]) {
