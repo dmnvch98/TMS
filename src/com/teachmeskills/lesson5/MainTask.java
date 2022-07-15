@@ -36,10 +36,11 @@ public class MainTask {
         String[][] twoDimensionalArr = new String[8][8];
         for (int i = 0; i < twoDimensionalArr.length; i++) {
             for (int j = 0; j < twoDimensionalArr.length; j++) {
-                if ((i % 2 == 0) == (j % 2 == 0))
+                if ((i % 2 == 0) == (j % 2 == 0)) {
                     twoDimensionalArr[i][j] = "W";
-                else
+                } else {
                     twoDimensionalArr[i][j] = "B";
+                }
             }
         }
         return twoDimensionalArr;
