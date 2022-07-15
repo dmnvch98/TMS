@@ -30,12 +30,29 @@ public final class Utils {
         System.out.println(Arrays.deepToString(arr));
     }
 
-    public static void printMatrix(Object[][] matrix){
+    public static void printArray(int[] arr) {
+        System.out.println(Arrays.toString(arr));
+    }
+
+    public static void printMatrix(Object[][] matrix) {
         for (Object[] objects : matrix) {
             for (Object object : objects) {
                 System.out.print(object + " ");
             }
             System.out.println();
         }
+    }
+
+    public static int[] bubbleSort(int[] intArr) {
+        for (int i = 0; i < intArr.length; i++) {
+            for (int k = 0; k < intArr.length - 1; k++) {
+                if (intArr[k] > intArr[k + 1]) {
+                    int tempInteger = intArr[k];
+                    intArr[k] = intArr[k + 1];
+                    intArr[k + 1] = tempInteger;
+                }
+            }
+        }
+        return intArr;
     }
 }
