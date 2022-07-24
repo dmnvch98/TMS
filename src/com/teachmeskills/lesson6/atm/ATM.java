@@ -1,12 +1,13 @@
 package com.teachmeskills.lesson6.atm;
 
+import java.util.Arrays;
+
 import static com.teachmeskills.lesson6.Utils.*;
 
 public class ATM {
     private int twentyDollarsQTY;
     private int fiftyDollarsQTY;
     private int oneHundredDollarsQTY;
-    private int[] banknotes;
 
     public ATM(int twentyDollarsQTY, int fiftyDollarsQTY, int oneHundredDollarsQTY) {
         this.twentyDollarsQTY = twentyDollarsQTY;
@@ -26,24 +27,33 @@ public class ATM {
         return (20 * twentyDollarsQTY) + (50 * fiftyDollarsQTY) + (100 * oneHundredDollarsQTY);
     }
 
-    private int[] initBanknotesArray() {
-        int[] banknotes = new int[twentyDollarsQTY + fiftyDollarsQTY + oneHundredDollarsQTY];
+    private int[] initAvailableBanknotesArray() {
+        int[] availableBanknotes = new int[twentyDollarsQTY + fiftyDollarsQTY + oneHundredDollarsQTY];
 
-        fillArrayInRange(0, oneHundredDollarsQTY, 100, banknotes);
-        fillArrayInRange(oneHundredDollarsQTY, oneHundredDollarsQTY + fiftyDollarsQTY, 50, banknotes);
-        fillArrayInRange(oneHundredDollarsQTY + fiftyDollarsQTY, banknotes.length, 20, banknotes);
+        fillArrayInRange(0, oneHundredDollarsQTY, 100, availableBanknotes);
+        fillArrayInRange(oneHundredDollarsQTY, oneHundredDollarsQTY + fiftyDollarsQTY, 50, availableBanknotes);
+        fillArrayInRange(oneHundredDollarsQTY + fiftyDollarsQTY, availableBanknotes.length, 20, availableBanknotes);
 
-        return banknotes;
+        return availableBanknotes;
     }
 
-    private boolean calculateBanknotes(int amount) {
-        banknotes = initBanknotesArray();
-        for (int banknote : banknotes) {
+    private int[] calculateBanknotes(int amount) {
+        int[] availableBanknotes = initAvailableBanknotesArray();
+        int[] banknotesToWithdraw = new int[0];
+        int counter = 0;
+        for (int banknote : availableBanknotes) {
             if (amount / banknote >= 1) {
                 amount -= banknote;
+                banknotesToWithdraw = Arrays.copyOf(banknotesToWithdraw, banknotesToWithdraw.length + 1);
+                banknotesToWithdraw[counter] = banknote;
+                counter++;
             }
         }
-        return amount == 0;
+        if (amount == 0) {
+            return banknotesToWithdraw;
+        } else {
+            return new int[0];
+        }
     }
 
     private void updateBanknotesQTY(int banknote) {
@@ -64,14 +74,12 @@ public class ATM {
     }
 
     public boolean withdrawMoney(int amount) {
-        if (amount <= getBalance() && calculateBanknotes(amount)) {
+        int[] banknotesToWithdraw = calculateBanknotes(amount);
+        if (amount <= getBalance() && banknotesToWithdraw.length != 0) {
             print(REMOVED_BANKNOTES);
-            for (int banknote : banknotes) {
-                if (amount / banknote >= 1) {
-                    print(banknote);
-                    amount -= banknote;
-                    updateBanknotesQTY(banknote);
-                }
+            for (int banknote : banknotesToWithdraw) {
+                print(banknote);
+                updateBanknotesQTY(banknote);
             }
             return true;
         } else {
