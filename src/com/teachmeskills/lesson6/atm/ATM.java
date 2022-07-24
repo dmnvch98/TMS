@@ -37,7 +37,7 @@ public class ATM {
         return availableBanknotes;
     }
 
-    private int[] calculateBanknotes(int amount) {
+    private int[] calculateBanknotesToWithdraw(int amount) {
         int[] availableBanknotes = initAvailableBanknotesArray();
         int[] banknotesToWithdraw = new int[0];
         int counter = 0;
@@ -49,11 +49,7 @@ public class ATM {
                 counter++;
             }
         }
-        if (amount == 0) {
-            return banknotesToWithdraw;
-        } else {
-            return new int[0];
-        }
+        return amount == 0 ? banknotesToWithdraw : new int[0];
     }
 
     private void updateBanknotesQTY(int banknote) {
@@ -74,7 +70,7 @@ public class ATM {
     }
 
     public boolean withdrawMoney(int amount) {
-        int[] banknotesToWithdraw = calculateBanknotes(amount);
+        int[] banknotesToWithdraw = calculateBanknotesToWithdraw(amount);
         if (amount <= getBalance() && banknotesToWithdraw.length != 0) {
             print(REMOVED_BANKNOTES);
             for (int banknote : banknotesToWithdraw) {
