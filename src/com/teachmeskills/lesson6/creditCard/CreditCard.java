@@ -1,7 +1,6 @@
 package com.teachmeskills.lesson6.creditCard;
 
 public class CreditCard {
-
     private final long accountNumber;
     private int currentBalance;
 
@@ -10,16 +9,12 @@ public class CreditCard {
         this.currentBalance = currentBalance;
     }
 
-    public void fillBalance(int amount) {
-        if (amount > 0) {
-            currentBalance += amount;
-        }
+    public int getCurrentBalance() {
+        return currentBalance;
     }
 
-    public void withdrawMoney(int amount) {
-        if (amount > 0 && amount <= currentBalance) {
-            currentBalance -= amount;
-        }
+    public void setCurrentBalance(int currentBalance) {
+        this.currentBalance = currentBalance;
     }
 
     @Override
