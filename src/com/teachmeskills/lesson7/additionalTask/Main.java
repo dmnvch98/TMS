@@ -10,18 +10,14 @@ import static com.teachmeskills.lesson7.Utils.print;
 
 public class Main {
     public static void main(String[] args) {
-        GoodsSupplyContract goodsSupplyContract = new GoodsSupplyContract(111, new Date(), "Type1",
-                10);
+        GoodsSupplyContract goodsSupplyContract = new GoodsSupplyContract(111, new Date(), "Type1", 10);
         GoodsSupplyContract goodsSupplyContract1 = new GoodsSupplyContract();
 
-        ContractWithEmployee contractWithEmployee = new ContractWithEmployee(222, new Date(), new Date(),
-                "Yauhen");
+        ContractWithEmployee contractWithEmployee = new ContractWithEmployee(222, new Date(), new Date(), "Yauhen");
         ContractWithEmployee contractWithEmployee1 = new ContractWithEmployee();
 
-        FinancialInvoice financialInvoice = new FinancialInvoice(333, new Date(), 444,
-                "AA");
+        FinancialInvoice financialInvoice = new FinancialInvoice(333, new Date(), 444, "AA");
         FinancialInvoice financialInvoice1 = new FinancialInvoice();
-
 
         Register register = new Register();
         register.saveDocumentInRegister(goodsSupplyContract);
