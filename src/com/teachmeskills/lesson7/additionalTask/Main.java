@@ -29,7 +29,9 @@ public class Main {
         register.saveDocumentInRegister(financialInvoice1);
 
         for (Document document: register.getDocuments()) {
-            print(register.getDocumentInfo(document));
+            if (document != null) {
+                print(register.getDocumentInfo(document));
+            } else return;
         }
     }
 }
