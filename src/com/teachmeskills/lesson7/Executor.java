@@ -1,4 +1,12 @@
-package com.teachmeskills.lesson7.shapes;
+package com.teachmeskills.lesson7;
+
+import com.teachmeskills.lesson7.employees.*;
+import com.teachmeskills.lesson7.shapes.Rectangle;
+import com.teachmeskills.lesson7.shapes.Shape;
+import com.teachmeskills.lesson7.shapes.Square;
+import com.teachmeskills.lesson7.shapes.Triangle;
+
+import java.util.Date;
 
 import static com.teachmeskills.lesson7.Utils.*;
 
@@ -22,5 +30,16 @@ public class Executor {
         for (Shape shape : shapes) {
             print(shape);
         }
+
+        Accountant accountant = new Accountant("John Snow", new Date());
+        Director director = new Director("Eugen Demyanovich", new Date());
+        Worker worker = new Worker("Kolya", new Date());
+
+        Printable[] employees = new Printable[]{accountant, director, worker};
+
+        for (Printable employee : employees) {
+            employee.printJobTitle();
+        }
+
     }
 }

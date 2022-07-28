@@ -13,8 +13,8 @@ public abstract class Shape {
         this.sideC = sideC;
     }
 
-    public Shape(double sideA, double height) {
-        this.sideA = sideA;
+    public Shape(double width, double height) {
+        this.sideA = width;
         this.sideB = height;
     }
 

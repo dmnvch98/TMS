@@ -1,6 +1,7 @@
 package com.teachmeskills.lesson7.additionalTask;
 
 import com.teachmeskills.lesson7.additionalTask.documents.ContractWithEmployee;
+import com.teachmeskills.lesson7.additionalTask.documents.Document;
 import com.teachmeskills.lesson7.additionalTask.documents.FinancialInvoice;
 import com.teachmeskills.lesson7.additionalTask.documents.GoodsSupplyContract;
 
@@ -27,11 +28,8 @@ public class Main {
         register.saveDocumentInRegister(financialInvoice);
         register.saveDocumentInRegister(financialInvoice1);
 
-        print(register.getDocumentInfo(goodsSupplyContract));
-        print(register.getDocumentInfo(goodsSupplyContract1));
-        print(register.getDocumentInfo(contractWithEmployee));
-        print(register.getDocumentInfo(contractWithEmployee1));
-        print(register.getDocumentInfo(financialInvoice));
-        print(register.getDocumentInfo(financialInvoice1));
+        for (Document document: register.getDocuments()) {
+            print(register.getDocumentInfo(document));
+        }
     }
 }

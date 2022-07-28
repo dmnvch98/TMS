@@ -13,7 +13,15 @@ public class Register {
         }
     }
 
+    public Document[] getDocuments() {
+        return documents;
+    }
+
     public String getDocumentInfo(Document document) {
         return document.toString();
+    }
+
+    public int getDocumentsQuantity() {
+        return documentsQuantity;
     }
 }
