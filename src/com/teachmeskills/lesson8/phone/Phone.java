@@ -64,6 +64,6 @@ public class Phone {
     public String toString() {
         return "number=" + number +
                 ", weight=" + weight +
-                ", model='" + model;
+                ", model=" + model;
     }
 }
