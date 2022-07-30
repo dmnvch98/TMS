@@ -1,6 +1,6 @@
-package com.teachmeskills.lesson8;
+package com.teachmeskills.lesson8.phone;
 
-import static com.teachmeskills.lesson8.Utils.print;
+import static com.teachmeskills.lesson8.phone.Utils.print;
 
 public class Executor {
     public static void main(String[] args) {
