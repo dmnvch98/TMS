@@ -2,13 +2,13 @@ package com.teachmeskills.lesson9.mainTask;
 
 import static com.teachmeskills.lesson9.VectorUtils.*;
 
-public abstract class Vector implements Vectorable {
+public abstract class Vector {
     public final static String MORE_THEN = " больше чем ";
     public final static String LESS_THEN = " меньше чем ";
 
-    private final double x;
-    private final double y;
-    private final double z;
+    private double x;
+    private double y;
+    private double z;
 
     public Vector(double x, double y, double z) {
         this.x = x;
@@ -20,6 +20,21 @@ public abstract class Vector implements Vectorable {
         this.x = x;
         this.y = y;
         this.z = 0;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public void setZ(double z) {
+        this.z = z;
+    }
+
+    public Vector() {
     }
 
     public double getX() {

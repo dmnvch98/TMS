@@ -1,6 +1,7 @@
 package com.teachmeskills.lesson9;
 
-import com.teachmeskills.lesson9.mainTask.Vectorable;
+import com.teachmeskills.lesson9.mainTask.ThreeDecimalVectorable;
+import com.teachmeskills.lesson9.mainTask.Vector;
 
 public final class VectorUtils {
     private final static double SCALE = Math.pow(10, 2);
@@ -14,8 +15,8 @@ public final class VectorUtils {
         return roundNumber(minimumNumberRange + (Math.random() * ((maximumNumberRange - minimumNumberRange) + 1)));
     }
 
-    public static void printVectorArray(Vectorable[] vectorArray) {
-        for (Vectorable vector: vectorArray) {
+    public static void printVectorArray(Vector[] vectorArray) {
+        for (Vector vector: vectorArray) {
             System.out.println(vector);
         }
     }
