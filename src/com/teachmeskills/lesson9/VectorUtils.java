@@ -2,6 +2,7 @@ package com.teachmeskills.lesson9;
 
 import com.teachmeskills.lesson9.mainTask.ThreeDecimalVectorable;
 import com.teachmeskills.lesson9.mainTask.Vector;
+import com.teachmeskills.lesson9.mainTask.Vectorable;
 
 public final class VectorUtils {
     private final static double SCALE = Math.pow(10, 2);
@@ -19,8 +20,8 @@ public final class VectorUtils {
         return roundNumber(minimumNumberRange + (Math.random() * ((maximumNumberRange - minimumNumberRange) + 1)));
     }
 
-    public static void printVectorArray(Vector[] vectorArray) {
-        for (Vector vector: vectorArray) {
+    public static void printVectorArray(Vectorable[] vectorArray) {
+        for (Vectorable vector: vectorArray) {
             System.out.println(vector);
         }
     }
@@ -33,5 +34,8 @@ public final class VectorUtils {
 
     public static double roundNumber(double number) {
         return Math.ceil(number * SCALE) / SCALE;
+    }
+    public static void print(Object object) {
+        System.out.println(object);
     }
 }

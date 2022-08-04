@@ -2,7 +2,7 @@ package com.teachmeskills.lesson9.mainTask;
 
 import static com.teachmeskills.lesson9.VectorUtils.*;
 
-public abstract class Vector {
+public abstract class Vector implements Vectorable {
     public final static String MORE_THEN = " больше чем ";
     public final static String LESS_THEN = " меньше чем ";
 
@@ -50,7 +50,6 @@ public abstract class Vector {
     }
 
     public double length() {
-        double i = roundNumber(Math.sqrt((getX() * getX()) + (getY() * getY()) + (getZ() * getZ())));
         return roundNumber(Math.sqrt((getX() * getX()) + (getY() * getY()) + (getZ() * getZ())));
     }
 

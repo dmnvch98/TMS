@@ -1,40 +1,48 @@
 package com.teachmeskills.lesson9.additionalTask;
 
+import com.teachmeskills.lesson9.mainTask.Vectorable;
+
 import java.util.Arrays;
+import java.util.Vector;
 
 import static com.teachmeskills.lesson9.VectorUtils.*;
 
-public class DraftVector {
-    private final double[] coordinates;
+public class MultiDecimalVector implements Vectorable {
+    private double[] coordinates;
 
-    public DraftVector(double... coordinates) {
+    public MultiDecimalVector(double... coordinates) {
         this.coordinates = coordinates;
+    }
+
+    public MultiDecimalVector() {
     }
 
     public double[] getCoordinates() {
         return coordinates;
     }
 
-    public void sum(DraftVector vector) {
+    public MultiDecimalVector sum(MultiDecimalVector vector) {
         if (this.getCoordinates().length == vector.getCoordinates().length) {
             double[] result = new double[this.coordinates.length];
 
             for (int i = 0; i < coordinates.length; i++) {
                 result[i] = this.coordinates[i] + vector.getCoordinates()[i];
             }
-            System.out.println(Arrays.toString(result));
+            return new MultiDecimalVector(result);
         }
+        return new MultiDecimalVector();
     }
 
-    public void minus(DraftVector vector) {
+    public MultiDecimalVector minus(MultiDecimalVector vector) {
         if (this.getCoordinates().length == vector.getCoordinates().length) {
             double[] result = new double[this.coordinates.length];
 
             for (int i = 0; i < coordinates.length; i++) {
                 result[i] = this.coordinates[i] - vector.getCoordinates()[i];
             }
-            System.out.println(Arrays.toString(result));
+            return new MultiDecimalVector(result);
         }
+        return new MultiDecimalVector();
     }
 
     public double length() {
@@ -45,7 +53,7 @@ public class DraftVector {
         return roundNumber(Math.sqrt(length));
     }
 
-    public double scalarProduct(DraftVector vector) {
+    public double scalarProduct(MultiDecimalVector vector) {
         double scalarProduct = 0;
         if (this.getCoordinates().length == vector.getCoordinates().length) {
             for (int i = 0; i < this.getCoordinates().length; i++) {
@@ -57,12 +65,12 @@ public class DraftVector {
         }
     }
 
-    public static DraftVector[] initVectorArray(int number) {
-        DraftVector[] vectorArray = new DraftVector[number];
+    public static MultiDecimalVector[] initVectorArray(int number) {
+        MultiDecimalVector[] vectorArray = new MultiDecimalVector[number];
         for (int i = 0; i < number; i++) {
             double[] randomArray = new double[(int) randomNumber(3, 10)];
             fillArrayWithRandomNumber(randomArray);
-            DraftVector vectorWithRandomValues = new DraftVector(randomArray);
+            MultiDecimalVector vectorWithRandomValues = new MultiDecimalVector(randomArray);
             vectorArray[i] = vectorWithRandomValues;
         }
         return vectorArray;
