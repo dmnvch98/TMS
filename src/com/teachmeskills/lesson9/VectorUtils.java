@@ -1,7 +1,4 @@
 package com.teachmeskills.lesson9;
-
-import com.teachmeskills.lesson9.mainTask.ThreeDecimalVectorable;
-import com.teachmeskills.lesson9.mainTask.Vector;
 import com.teachmeskills.lesson9.mainTask.Vectorable;
 
 public final class VectorUtils {
