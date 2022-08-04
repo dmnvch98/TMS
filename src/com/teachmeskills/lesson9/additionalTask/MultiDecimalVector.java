@@ -3,7 +3,6 @@ package com.teachmeskills.lesson9.additionalTask;
 import com.teachmeskills.lesson9.mainTask.Vectorable;
 
 import java.util.Arrays;
-import java.util.Vector;
 
 import static com.teachmeskills.lesson9.VectorUtils.*;
 
