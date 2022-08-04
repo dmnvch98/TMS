@@ -15,9 +15,19 @@ public final class VectorUtils {
         return roundNumber(minimumNumberRange + (Math.random() * ((maximumNumberRange - minimumNumberRange) + 1)));
     }
 
+    public static double randomNumber(int minimumNumberRange, int maximumNumberRange) {
+        return roundNumber(minimumNumberRange + (Math.random() * ((maximumNumberRange - minimumNumberRange) + 1)));
+    }
+
     public static void printVectorArray(Vector[] vectorArray) {
         for (Vector vector: vectorArray) {
             System.out.println(vector);
+        }
+    }
+
+    public static void fillArrayWithRandomNumber(double[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = randomNumber();
         }
     }
 
