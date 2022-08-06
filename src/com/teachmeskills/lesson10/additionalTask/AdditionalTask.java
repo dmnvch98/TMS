@@ -1,10 +1,13 @@
 package com.teachmeskills.lesson10.additionalTask;
 
 import java.util.*;
+
 import static com.teachmeskills.lesson10.Utils.print;
 
 public class AdditionalTask {
+    public final static String TEST_TEXT = "Lorem Ipsum is simply dummy text of the printing and typesetting industry";
     public final static String INCORRECT_VALUE = "Введено некорректное число";
+
     public String[] getMinMaxWord(String testString) {
         String[] separatedString = testString.split(" ");
         String[] minMaxWords = new String[]{separatedString[0], separatedString[0]};
@@ -43,7 +46,7 @@ public class AdditionalTask {
 
     public boolean isPalindrome(String testString, int wordNumber) {
         String[] separatedString = testString.split(" ");
-        if ((separatedString.length < wordNumber - 1 && wordNumber > 0)) {
+        if ((separatedString.length > wordNumber - 1 && wordNumber > 0)) {
             return separatedString[wordNumber]
                     .equals(new StringBuilder(separatedString[wordNumber])
                             .reverse()

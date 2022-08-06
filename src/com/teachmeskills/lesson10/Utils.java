@@ -3,10 +3,12 @@ package com.teachmeskills.lesson10;
 import com.teachmeskills.lesson10.mainTask.Document;
 import com.teachmeskills.lesson10.mainTask.DocumentService;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public final class Utils {
     public final static String DOCUMENT_HAS_NOT_NUMBER = "У документа нет номера";
+
     private Utils() {
     }
 
@@ -21,5 +23,9 @@ public final class Utils {
             print(DOCUMENT_HAS_NOT_NUMBER);
             return false;
         }
+    }
+
+    public static void printArray(Object[] array) {
+        System.out.println(Arrays.toString(array));
     }
 }

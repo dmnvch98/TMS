@@ -9,25 +9,25 @@ public class DocumentService {
     private final static String DOCUMENT_HAS_NOT_NUMBER = "У документа нет номера";
     private final static StringBuilder stringBuilder = new StringBuilder();
 
-    public static void getDocumentPeriodNumbers(Document document) {
+    public static String getDocumentPeriodNumbers(Document document) {
         if (isDocumentNumberEmpty(document)) {
+            stringBuilder.setLength(0);
             stringBuilder
                     .append(document.getDocumentNumber(), 0, 4)
                     .append(document.getDocumentNumber(), 9, 13);
-            print(stringBuilder);
-            stringBuilder.setLength(0);
-        }
+            return stringBuilder.toString();
+        } else return "";
     }
 
-    public static void replaceCharPeriodsToAsterisks(Document document) {
+    public static String replaceCharPeriodsToAsterisks(Document document) {
         if (isDocumentNumberEmpty(document)) {
+            stringBuilder.setLength(0);
             stringBuilder.append(document.getDocumentNumber());
             stringBuilder
                     .replace(5, 8, "***")
                     .replace(14, 17, "***");
-            print(stringBuilder);
-            stringBuilder.setLength(0);
-        }
+            return stringBuilder.toString();
+        } else return "";
     }
 
     public static String getAllCharsSeparatedBySlashLowercase(Document document) {
