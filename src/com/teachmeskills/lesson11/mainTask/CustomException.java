@@ -10,6 +10,6 @@ public class CustomException extends Exception {
 
     @Override
     public String toString() {
-        return "CustomException = " + getMessage();
+        return "CustomException= " + getMessage();
     }
 }

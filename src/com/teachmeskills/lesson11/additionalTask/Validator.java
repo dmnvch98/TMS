@@ -17,7 +17,7 @@ public final class Validator {
         if (!(value.contains(" "))) {
             return true;
         } else {
-            throw new WrongLoginException("Логин содержит пробел");
+            throw new WrongLoginException("Логин содержит пробел.");
         }
     }
 

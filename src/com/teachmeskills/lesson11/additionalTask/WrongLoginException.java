@@ -1,6 +1,6 @@
 package com.teachmeskills.lesson11.additionalTask;
 
-public class WrongLoginException extends Exception{
+public class WrongLoginException extends Exception {
     public WrongLoginException() {
     }
 

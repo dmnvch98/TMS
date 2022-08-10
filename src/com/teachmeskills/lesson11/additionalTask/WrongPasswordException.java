@@ -1,6 +1,6 @@
 package com.teachmeskills.lesson11.additionalTask;
 
-public class WrongPasswordException extends Exception{
+public class WrongPasswordException extends Exception {
     public WrongPasswordException() {
     }
 

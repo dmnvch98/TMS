@@ -28,7 +28,7 @@ public class DocumentService {
             if (isDocumentNumberContainsSubstring(0, 3, "555", document)) {
                 return true;
             } else {
-                throw new CustomException("Последовательности 555 нет...");
+                throw new CustomException("Последовательности 555 нет");
             }
         } catch (CustomException e) {
             e.printStackTrace();
@@ -41,7 +41,7 @@ public class DocumentService {
             if (isDocumentNumberContainsSubstring(18, 22, "1a2b", document)) {
                 return true;
             } else {
-                throw new CustomException("Последовательности 1a2b нет...");
+                throw new CustomException("Последовательности 1a2b нет");
             }
         } catch (CustomException e) {
             e.printStackTrace();
