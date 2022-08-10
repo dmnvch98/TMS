@@ -1,4 +1,4 @@
-package teachmeskills.lesson3;
+package com.teachmeskills.lesson3;
 
 public class ConditionalStatement {
     public final static String WINTER = "Зима";

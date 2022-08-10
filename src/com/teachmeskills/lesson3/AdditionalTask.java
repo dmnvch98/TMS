@@ -1,4 +1,4 @@
-package teachmeskills.lesson3;
+package com.teachmeskills.lesson3;
 
 public class AdditionalTask {
     public final static String ASK_MONEY_SUM = "Введите сумму, которую вы хотите положить на счет: ";

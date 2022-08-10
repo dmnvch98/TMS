@@ -1,4 +1,4 @@
-package teachmeskills.lesson3;
+package com.teachmeskills.lesson3;
 
 public class Executor {
     public static void main(String[] args) {

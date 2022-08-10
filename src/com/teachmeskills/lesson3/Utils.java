@@ -1,4 +1,4 @@
-package teachmeskills.lesson3;
+package com.teachmeskills.lesson3;
 import java.util.Scanner;
 
 public final class Utils {

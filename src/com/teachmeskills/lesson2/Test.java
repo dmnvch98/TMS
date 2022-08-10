@@ -1,4 +1,4 @@
-package teachmeskills.lesson2;
+package com.teachmeskills.lesson2;
 
 public class Test {
     public void sum(double operand1, double operand2){
