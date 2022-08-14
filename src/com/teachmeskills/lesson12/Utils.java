@@ -37,7 +37,6 @@ public final class Utils {
     public static void createFileAndWrite(String filename, ArrayList<String> docnums) {
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(filename), StandardCharsets.UTF_8))) {
-            //writer.write("something");
             for (String documentNumber: docnums) {
                 writer.write(documentNumber + "\n");
             }

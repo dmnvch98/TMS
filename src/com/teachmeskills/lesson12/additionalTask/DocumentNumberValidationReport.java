@@ -3,8 +3,6 @@ package com.teachmeskills.lesson12.additionalTask;
 import com.teachmeskills.lesson12.mainTask.DocumentNumberValidator;
 
 import java.util.ArrayList;
-import java.util.Locale;
-
 import static com.teachmeskills.lesson12.Utils.createFileAndWrite;
 import static com.teachmeskills.lesson12.Utils.readFileAndReturnValues;
 
@@ -15,14 +13,14 @@ public class DocumentNumberValidationReport {
     public final static String DOCUMENT_NUMBER_LENGTH_LESS_THEN = "Длина номера документа не ";
     public final static String DOCUMENT_NUMBER_NOT_STARTS_WITH = "Номер документа не начинается с ";
     public final static String DOCUMENT_NUMBER_CONTAINS_SPECIAL_SYMBOLS = "Номер документа содержит спец символы. ";
-    public final static String DOCUMENT_NUMBER_NOT_CONTAINS_DIGITS = "Номер документы не содержит цифр ";
-    public final static String DOCUMENT_NUMBER_NOT_CONTAINS_LETTERS = "Номер документы не содержит букв ";
+    public final static String DOCUMENT_NUMBER_NOT_CONTAINS_DIGITS = "Номер документа не содержит цифр ";
+    public final static String DOCUMENT_NUMBER_NOT_CONTAINS_LETTERS = "Номер документа не содержит букв ";
     public final static String SPECIAL_SYMBOLS_REGEX = "[a-zA-Z0-9 ]*";
     public final static String DIGITS_REGEX = ".*\\d.*";
     public final static String LETTERS_REGES = ".*[a-zA-Z]+.*";
 
 
-    public static void isDocumentNumberValid() {
+    public static void filterDocumentNumbers() {
         ArrayList<String> documentNumbersList = readFileAndReturnValues();
         ArrayList<String> incorrectNumbers = new ArrayList<>();
         ArrayList<String> correctNumbers = new ArrayList<>();
