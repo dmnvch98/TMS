@@ -20,21 +20,12 @@ public class ConditionalStatement {
     public final static String PURPLE = "Фиолетовый";
 
     public void findSeasonByMonthNumberSwitch(int enteredSeason){
-        switch (enteredSeason){
-            case 3,4,5:
-                System.out.println(SPRING);
-                break;
-            case 6,7,8:
-                System.out.println(SUMMER);
-                break;
-            case 9,10,11:
-                System.out.println(AUTUMN);
-                break;
-            case 12,1,2:
-                System.out.println(WINTER);
-                break;
-            default:
-                System.out.println(INCORRECT);
+        switch (enteredSeason) {
+            case 3, 4, 5 -> System.out.println(SPRING);
+            case 6, 7, 8 -> System.out.println(SUMMER);
+            case 9, 10, 11 -> System.out.println(AUTUMN);
+            case 12, 1, 2 -> System.out.println(WINTER);
+            default -> System.out.println(INCORRECT);
         }
     }
 

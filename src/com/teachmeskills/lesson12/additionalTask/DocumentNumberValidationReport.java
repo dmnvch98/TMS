@@ -42,7 +42,7 @@ public class DocumentNumberValidationReport {
                 isDocumentNumberStartsDocnumOrContract(documentNumber) +
                 isDocumentContainsSpecialCharacters(documentNumber) +
                 isDocumentNumberContainsDigits(documentNumber) +
-                isDocumentNumberContainsLrtters(documentNumber);
+                isDocumentNumberContainsLetters(documentNumber);
     }
 
     private static String isDocumentNumberFifteenLength(String documentNumber) {
@@ -77,7 +77,7 @@ public class DocumentNumberValidationReport {
         }
     }
 
-    private static String isDocumentNumberContainsLrtters(String documentNumber) {
+    private static String isDocumentNumberContainsLetters(String documentNumber) {
         if (!(documentNumber.matches(LETTERS_REGES))) {
             return DOCUMENT_NUMBER_NOT_CONTAINS_LETTERS + ". ";
         } else {
