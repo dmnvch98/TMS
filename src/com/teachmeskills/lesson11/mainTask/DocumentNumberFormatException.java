@@ -10,6 +10,6 @@ public class DocumentNumberFormatException extends Exception {
 
     @Override
     public String toString() {
-        return "DocumentNumberFormatException= Номер документа пустой";
+        return "Номер документа пустой";
     }
 }
