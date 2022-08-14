@@ -8,7 +8,7 @@ public class DocumentService {
 
     public static boolean isDocumentNumberContainsAbc(Document document) {
         try {
-            if (isDocumentNumberEmpty(document)) {
+            if (isDocumentNumberNotEmpty(document)) {
                 if (document.getDocumentNumber().toUpperCase().contains("ABC")) {
                     return true;
                 } else {
@@ -25,7 +25,7 @@ public class DocumentService {
 
     public static boolean isDocumentNumberStartWithFives(Document document) {
         try {
-            if (isDocumentNumberEmpty(document)) {
+            if (isDocumentNumberNotEmpty(document)) {
                 if (document.getDocumentNumber().startsWith("555")) {
                     return true;
                 } else {
@@ -42,7 +42,7 @@ public class DocumentService {
 
     public static boolean isDocumentNumberEndsWithValue(Document document) {
         try {
-            if (isDocumentNumberEmpty(document)) {
+            if (isDocumentNumberNotEmpty(document)) {
                 if (document.getDocumentNumber().endsWith("1a2b")) {
                     return true;
                 } else {
@@ -57,7 +57,7 @@ public class DocumentService {
         }
     }
 
-    public static boolean isDocumentNumberEmpty(Document document) throws DocumentNumberFormatException {
+    public static boolean isDocumentNumberNotEmpty(Document document) throws DocumentNumberFormatException {
         if (!Objects.isNull(document.getDocumentNumber())) {
             return true;
         } else {
