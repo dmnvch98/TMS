@@ -1,4 +1,4 @@
-package com.teachmeskills.lesson13;
+package com.teachmeskills.lesson13.mainTask;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -23,7 +23,8 @@ public final class Utils {
         ArrayList<String> pathAndNames = new ArrayList<>();
         String enteredValue = askData();
         while (!(enteredValue.equals("0"))) {
-            pathAndNames.add(enteredValue);
+            String temp = enteredValue.replace(" ", "/");
+            pathAndNames.add(temp);
             enteredValue = askData();
         }
         return pathAndNames;

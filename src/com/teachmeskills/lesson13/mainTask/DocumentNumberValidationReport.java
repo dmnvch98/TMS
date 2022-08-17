@@ -1,4 +1,4 @@
-package com.teachmeskills.lesson13;
+package com.teachmeskills.lesson13.mainTask;
 
 import com.teachmeskills.lesson12.mainTask.DocumentNumberValidator;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import static com.teachmeskills.lesson13.Utils.*;
+import static com.teachmeskills.lesson13.mainTask.Utils.*;
 public class DocumentNumberValidationReport {
     public final static int DOCUMENT_NUMBER_LENGTH = 15;
     public final static String DOCNUM = "DOCNUM";
