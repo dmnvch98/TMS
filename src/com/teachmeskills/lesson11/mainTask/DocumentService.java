@@ -6,52 +6,54 @@ import java.util.Objects;
 
 public class DocumentService {
 
-    public static boolean isDocumentNumberContainsAbc(Document document) {
+    public static boolean isDocumentNumberContainsSubstring(Document document, String substring) {
         try {
             if (isDocumentNumberNotEmpty(document)) {
-                if (document.getDocumentNumber().toUpperCase().contains("ABC")) {
+                if (document.getDocumentNumber().toUpperCase().contains(substring)) {
                     return true;
                 } else {
-                    throw new NoAbcSubstringException();
+                    throw new DocumentNumberNotContainsSubstringException("Последовательности " + substring + " нет");
                 }
             } else {
                 return false;
             }
-        } catch (DocumentNumberFormatException | NoAbcSubstringException e) {
+        } catch (DocumentNumberFormatException | DocumentNumberNotContainsSubstringException e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    public static boolean isDocumentNumberStartWithFives(Document document) {
+    public static boolean isDocumentNumberStartWithSubString(Document document, String substring) {
         try {
             if (isDocumentNumberNotEmpty(document)) {
-                if (document.getDocumentNumber().startsWith("555")) {
+                if (document.getDocumentNumber().startsWith(substring)) {
                     return true;
                 } else {
-                    throw new No555SubstringException("Последовательности 555 нет");
+                    throw new DocumentNumberNotStartsWithSubstringException("Номер документа не начинается с "
+                            + substring);
                 }
             } else {
                 return false;
             }
-        } catch (No555SubstringException | DocumentNumberFormatException e) {
+        } catch (DocumentNumberNotStartsWithSubstringException | DocumentNumberFormatException e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    public static boolean isDocumentNumberEndsWithValue(Document document) {
+    public static boolean isDocumentNumberEndsWithSubString(Document document, String substring) {
         try {
             if (isDocumentNumberNotEmpty(document)) {
-                if (document.getDocumentNumber().endsWith("1a2b")) {
+                if (document.getDocumentNumber().endsWith(substring)) {
                     return true;
                 } else {
-                    throw new No1a2bSubstringException();
+                    throw new DocumentNumberNotEndsWithSubstringException("Номер документа не заканчивается на "
+                            + substring);
                 }
             } else {
                 return false;
             }
-        } catch (No1a2bSubstringException | DocumentNumberFormatException e) {
+        } catch (DocumentNumberNotEndsWithSubstringException | DocumentNumberFormatException e) {
             e.printStackTrace();
             return false;
         }
