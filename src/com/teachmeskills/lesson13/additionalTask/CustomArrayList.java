@@ -5,11 +5,10 @@ import java.util.Iterator;
 
 import static com.teachmeskills.lesson13.additionalTask.ArrayUtils.concatWithArrayCopy;
 
-public class CustomArrayList<T> implements Iterable {
+public class CustomArrayList<T> {
     private static final int DEFAULT_SIZE = 0;
     private static final int GROW_LENGTH = 10;
     private T[] values;
-    private int freePositions = 0;
     private int lastAvailablePosition = 0;
 
     public CustomArrayList() {
@@ -18,13 +17,12 @@ public class CustomArrayList<T> implements Iterable {
 
     public CustomArrayList(int size) {
         values = (T[]) new Object[size];
-        freePositions = size;
     }
 
-    @Override
-    public Iterator iterator() {
-        return new ArrayIterator<T>(values);
-    }
+//    @Override
+//    public Iterator iterator() {
+//        return new ArrayIterator<T>(values);
+//    }
 
     public int size() {
         return values.length;
@@ -69,7 +67,7 @@ public class CustomArrayList<T> implements Iterable {
             return false;
         }
     }
-//1 2 3
+
     public boolean remove(int index) {
         try {
             T[] leftPartOfArray = Arrays.copyOfRange(values, 0, index);
@@ -85,11 +83,10 @@ public class CustomArrayList<T> implements Iterable {
     public void clear() {
         values = (T[]) new Object[0];
         lastAvailablePosition = 0;
-        freePositions = 0;
     }
 
     public boolean isPresent(T findValue) {
-        for (T iterableValue: values) {
+        for (T iterableValue : values) {
             if (iterableValue == findValue) {
                 return true;
             }
@@ -99,8 +96,6 @@ public class CustomArrayList<T> implements Iterable {
 
     @Override
     public String toString() {
-        return "CustomArrayList{" +
-                "values=" + Arrays.toString(values) +
-                '}';
+        return Arrays.toString(values);
     }
 }
