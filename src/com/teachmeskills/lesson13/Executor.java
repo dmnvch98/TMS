@@ -1,15 +1,11 @@
-package com.teachmeskills.lesson13.mainTask;
+package com.teachmeskills.lesson13;
 
 import com.teachmeskills.lesson13.additionalTask.CustomArrayList;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import com.teachmeskills.lesson13.mainTask.DocumentNumberValidationReport;
 
 public class Executor {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        DocumentNumberValidationReport.validateAllDocuments();
         CustomArrayList<String> list = new CustomArrayList<>(5);
         CustomArrayList<String> list1 = new CustomArrayList<>();
         for (int i = 0; i < 100; i++) {

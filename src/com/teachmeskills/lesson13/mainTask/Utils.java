@@ -10,7 +10,6 @@ import java.util.Scanner;
 public final class Utils {
     private static final String ASK_USER_PATH_TO_FILE = "Введите путь к файлу и его название: ";
     private static Scanner scanner = new Scanner(System.in);;
-
     private Utils() {
     }
 
