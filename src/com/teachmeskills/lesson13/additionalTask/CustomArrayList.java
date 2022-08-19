@@ -1,13 +1,11 @@
 package com.teachmeskills.lesson13.additionalTask;
 
 import java.util.Arrays;
-import java.util.Iterator;
 
 import static com.teachmeskills.lesson13.additionalTask.ArrayUtils.concatWithArrayCopy;
 
 public class CustomArrayList<T> {
     private static final int DEFAULT_SIZE = 0;
-    private static final int GROW_LENGTH = 10;
     private T[] values;
     private int lastAvailablePosition = 0;
 
@@ -18,11 +16,6 @@ public class CustomArrayList<T> {
     public CustomArrayList(int size) {
         values = (T[]) new Object[size];
     }
-
-//    @Override
-//    public Iterator iterator() {
-//        return new ArrayIterator<T>(values);
-//    }
 
     public int size() {
         return values.length;
