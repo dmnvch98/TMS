@@ -7,13 +7,14 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
 
 public class DateService {
-    public static String getDayOfWeek(long epochTime) {
+    public static final String DAY_OF_THE_WEEK_PATTERN = "EEEEEEE";
+    public String getDayOfWeek(long epochTime) {
         Date date = new Date(epochTime * 1000);
-        return new SimpleDateFormat("EEEEEEE").format(date);
+        return new SimpleDateFormat(DAY_OF_THE_WEEK_PATTERN).format(date);
     }
 
-    public static String getNextTuesdayDate() {
-        LocalDate dt = LocalDate.now();
-        return dt.with(TemporalAdjusters.next(DayOfWeek.TUESDAY)).toString();
+    public String getNextTuesdayDate() {
+        LocalDate currentDate = LocalDate.now();
+        return currentDate.with(TemporalAdjusters.next(DayOfWeek.TUESDAY)).toString();
     }
 }
