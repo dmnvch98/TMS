@@ -3,6 +3,7 @@ package com.teachmeskills.lesson17;
 import com.teachmeskills.lesson17.additionalTask.Parser;
 import com.teachmeskills.lesson17.mainTask.IPChecker;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,5 +16,4 @@ public class Executor {
         Parser parser = new Parser();
         parser.showParseInfo();
     }
-
 }

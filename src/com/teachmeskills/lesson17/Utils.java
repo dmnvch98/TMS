@@ -6,16 +6,20 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Stream;
+
 import static com.teachmeskills.Utils.*;
 
 public final class Utils {
     private static Scanner scanner;
+
     private Utils() {
     }
 
@@ -29,22 +33,18 @@ public final class Utils {
                     .limit(documentsToReadNumber)
                     .toList();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("No such file");
         }
         return filesPaths;
     }
 
     public static List<String> readFileAndReturnValues(Path path) {
-        File file = path.toFile();
-        try {
-            scanner = new Scanner(file);
-        } catch (FileNotFoundException e) {
+        try (Stream<String> stream = Files.lines(Paths.get(path.toString()))) {
+            return stream.toList();
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        List<String> content = new ArrayList<>();
-        while (scanner.hasNextLine()) {
-            content.add(scanner.nextLine());
-        }
-        return content;
+        return new ArrayList<>();
     }
 }
