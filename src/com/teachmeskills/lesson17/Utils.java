@@ -1,5 +1,7 @@
 package com.teachmeskills.lesson17;
 
+import com.teachmeskills.lesson17.additionalTask.Parser;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Stream;
 import static com.teachmeskills.Utils.*;
@@ -22,7 +25,9 @@ public final class Utils {
         List<Path> filesPaths = new ArrayList<>();
 
         try (Stream<Path> paths = Files.list(new File(dirName).toPath())) {
-            filesPaths = paths.limit(documentsToReadNumber).toList();
+            filesPaths = paths
+                    .limit(documentsToReadNumber)
+                    .toList();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -30,7 +35,7 @@ public final class Utils {
     }
 
     public static List<String> readFileAndReturnValues(Path path) {
-        File file = new File(path.toString());
+        File file = path.toFile();
         try {
             scanner = new Scanner(file);
         } catch (FileNotFoundException e) {
