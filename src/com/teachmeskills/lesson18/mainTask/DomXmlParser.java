@@ -21,7 +21,7 @@ public class DomXmlParser implements Parseble {
     public String title;
 
     @Override
-    public void readXml(String path) {
+    public void parseXml(String path) {
         // Instantiate the Factory
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 

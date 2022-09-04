@@ -37,8 +37,8 @@ public class Executor {
                 1 - SAX\s
                 2 - DOM""");
         switch (enteredNumber) {
-            case 1 -> new SaxXmlParser().readXml(filePath);
-            case 2 -> new DomXmlParser().readXml(filePath);
+            case 1 -> new SaxXmlParser().parseXml(filePath);
+            case 2 -> new DomXmlParser().parseXml(filePath);
         }
     }
 }

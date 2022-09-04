@@ -17,7 +17,7 @@ public class SaxXmlParser implements Parseble {
     private static Sonnet sonnet;
 
     @Override
-    public void readXml(String path) {
+    public void parseXml(String path) {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         try {
             SAXParser parser = factory.newSAXParser();
