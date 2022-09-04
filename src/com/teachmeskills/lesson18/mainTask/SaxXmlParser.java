@@ -1,6 +1,6 @@
 package com.teachmeskills.lesson18.mainTask;
 
-import com.teachmeskills.lesson18.Utils;
+import com.teachmeskills.lesson18.ParserUtils;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -27,7 +27,7 @@ public class SaxXmlParser implements Parseble {
                     + "_" + sonnet.getAuthorLastName()
                     + "_" + sonnet.getSonnetTitle()
                     + ".txt";
-            Utils.createFileAndWrite(sonnet.getLines(), resultFileName);
+            ParserUtils.createFileAndWrite(sonnet.getLines(), resultFileName);
         } catch (ParserConfigurationException | SAXException | IOException e) {
             throw new RuntimeException(e);
         }

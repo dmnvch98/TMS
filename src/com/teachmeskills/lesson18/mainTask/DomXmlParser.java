@@ -1,6 +1,6 @@
 package com.teachmeskills.lesson18.mainTask;
 
-import com.teachmeskills.lesson18.Utils;
+import com.teachmeskills.lesson18.ParserUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -52,7 +52,7 @@ public class DomXmlParser implements Parseble {
                     .map(String::trim)
                     .toList();
 
-            Utils.createFileAndWrite(linesList, resultFileName);
+            ParserUtils.createFileAndWrite(linesList, resultFileName);
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
