@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static com.teachmeskills.Utils.*;
@@ -47,9 +48,15 @@ public final class ParserUtils {
 
     public static String selectFile(List<Path> paths) {
         print("Select which xml file to parse: ");
-        for (int i = 0; i < paths.size(); i++) {
-            System.out.println(i + " - " + paths.get(i).getFileName());
-        }
+        List<String> tempPaths = paths
+                        .stream()
+                        .map(x -> x.getFileName().toString())
+                        .toList();
+        IntStream
+                .range(0, paths.size())
+                .mapToObj(i -> String.format("%d - %s", i, tempPaths.get(i)))
+                .forEach(System.out::println);
+
         int enteredNumber = askEnterNumber();
         return paths.get(enteredNumber).toString();
     }
