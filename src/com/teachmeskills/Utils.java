@@ -32,4 +32,17 @@ public final class Utils {
         print(ASK_STRING);
         return scanner.nextLine();
     }
+
+    public static int askEnterNumber(String text) {
+        print(text);
+        while (true){
+            print(ASK_NUMBER);
+            try {
+                scanner = new Scanner(System.in);
+                return scanner.nextInt();
+            } catch (InputMismatchException e) {
+                print(INCORRECT_VALUE);
+            }
+        }
+    }
 }
