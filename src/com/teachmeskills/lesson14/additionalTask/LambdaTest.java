@@ -2,6 +2,9 @@ package com.teachmeskills.lesson14.additionalTask;
 
 import com.teachmeskills.Utils;
 
+import java.util.List;
+import java.util.stream.Stream;
+
 import static com.teachmeskills.Utils.*;
 
 public class LambdaTest {
@@ -26,5 +29,9 @@ public class LambdaTest {
             }
             default -> print(Utils.INCORRECT_VALUE);
         }
+    }
+
+    public void someMethod() {
+        List<String> list = Stream.of("dfdfsd", "asfasf").toList();
     }
 }
