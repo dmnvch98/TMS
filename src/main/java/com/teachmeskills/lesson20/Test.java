@@ -1,6 +1,6 @@
 package com.teachmeskills.lesson20;
 
-import com.teachmeskills.lesson20.converters.IdsResultSetConverter;
+import com.teachmeskills.lesson20.converters.CityResultSetConverter;
 import com.teachmeskills.lesson20.converters.StudentResultSetConverter;
 import com.teachmeskills.lesson20.entities.City;
 import com.teachmeskills.lesson20.entities.Gender;
@@ -9,37 +9,50 @@ import com.teachmeskills.lesson20.exceptions.IdNotExistException;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Test {
-    private static final String sql = "select * from school.student";
-    private static final String insertStudentSQL = "INSERT INTO `school`.`student` (`name`, `last_name`, `gender`, `age`, `height`, `class_id`) " +
-            "VALUES (?, ?, ?, ?, ?, ?);";
+    private static final String getStudentsSQL = "SELECT * FROM school.student";
+    private static final String getCitiesSQL = "SELECT * FROM school.city";
+    private static final String insertStudentSQL = "INSERT INTO `school`.`student` (`name`, `last_name`, `gender`, " +
+            "`age`, `city_id`, `height`, `class_id`) VALUES (?, ?, ?, ?, ?, ?, ?);";
     public static final String insertCitySQL = "INSERT INTO `school`.`city`(`name`, `description`, `country_id`) " +
             "VALUES (?, ?, ?);";
 
     private static final String deleteCity = "DELETE FROM `school`.`city` where id = ?";
+    private static final String deleteStudent = "DELETE FROM `school`.`student` where id = ?";
+    private static final String getStudentAndTheirCityInfoSQL =
+            "SELECT s.*, c.description FROM school.student s JOIN city c ON s.city_id = c.id";
     private static final StudentResultSetConverter studentConverter = new StudentResultSetConverter();
-    private static final IdsResultSetConverter countryConverter = new IdsResultSetConverter();
+    private static final CityResultSetConverter cityConverter = new CityResultSetConverter();
 
     public static void main(String[] args) throws IdNotExistException {
-//        Test test = new Test();
+        Test test = new Test();
 //        City city = new City();
 //        city.setName("Mink");
 //        city.setCountryId(1);
 //        city.setDescription("Capital of Belarus");
 //        test.addCity(city);
-      //  test.getStudents();
-     //   test.getListOfTableIds("country");
-        Student student = new Student();
-        student.setName("Egor");
-        student.setLastName("Bachilo");
-        student.setGender(Gender.male);
-        student.setAge(23);
-        student.setHeight(170);
-        student.setClassId(2);
-        student.setCityId(5);
-        new Test().addStudent(student);
+        //  test.getStudents();
+        //   test.getListOfTableIds("country");
+//
+//        Student student = new Student();
+//        student.setName("Liza");
+//        student.setLastName("Vredina");
+//        student.setGender(Gender.male);
+//        student.setAge(23);
+//        student.setHeight(170);
+//        student.setClassId(2);
+//        student.setCityId(4);
+//        student.setId(20);
+        // test.addStudent(student);
+        //test.deleteStudent(student);
+    //    test.getCities().forEach(System.out::println);
+        test.getStudentAndTheirCityInfo();
     }
 
     public void addStudent(Student student) {
@@ -51,8 +64,9 @@ public class Test {
             stmt.setString(2, student.getLastName());
             stmt.setString(3, student.getGender().toString());
             stmt.setInt(4, student.getAge());
-            stmt.setInt(5, student.getHeight());
-            stmt.setInt(6, student.getClassId());
+            stmt.setInt(5, student.getCityId());
+            stmt.setInt(6, student.getHeight());
+            stmt.setInt(7, student.getClassId());
             stmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,14 +77,12 @@ public class Test {
         List<Student> students = new ArrayList<>();
         try (
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "root");
-                PreparedStatement stmt = con.prepareStatement(sql);
+                PreparedStatement stmt = con.prepareStatement(getStudentsSQL);
         ) {
-            ResultSet rs = stmt.executeQuery(sql);
+            ResultSet rs = stmt.executeQuery(getStudentsSQL);
             while (rs.next()) {
                 students.add(studentConverter.convert(rs));
             }
-            con.close();
-            stmt.close();
             students.forEach(System.out::println);
         } catch (Exception e) {
             System.out.println(e);
@@ -78,22 +90,33 @@ public class Test {
         return students;
     }
 
-    public List<Integer> getListOfTableIds(String tableName) {
-        String getTableIdsSQL = "SELECT id FROM school." + tableName;
-        List<Integer> countryIds = new ArrayList<>();
+
+    public void deleteStudent(Student student) {
         try (
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "root");
-                PreparedStatement stmt = con.prepareStatement(getTableIdsSQL);
+                PreparedStatement stmt = con.prepareStatement(deleteStudent);
         ) {
-            ResultSet rs = stmt.executeQuery(getTableIdsSQL);
+            stmt.setInt(1, student.getId());
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public List<City> getCities() {
+        List<City> cities = new ArrayList<>();
+        try (
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "root");
+                PreparedStatement stmt = con.prepareStatement(getCitiesSQL);
+        ) {
+            ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                countryIds.add(countryConverter.existingCountryId(rs));
+                cities.add(cityConverter.convert(rs));
             }
         } catch (Exception e) {
             System.out.println(e);
         }
-        countryIds.forEach(System.out::println);
-        return countryIds;
+        return cities;
     }
 
     public void addCity(City city) {
@@ -122,18 +145,19 @@ public class Test {
         }
     }
 
-    public boolean checkIfIDExistInSpecifiedTable(String tableName, int id) {
-        String getTableIdsSQL = "SELECT id FROM school." + tableName + " where id = " + id;
-        try (
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "root");
-                PreparedStatement stmt = con.prepareStatement(getTableIdsSQL);
-        ) {
-            boolean result =  stmt.execute(getTableIdsSQL);
-            return result;
-        } catch (Exception e) {
-            System.out.println(e);
-            return false;
-        }
+    public void getStudentAndTheirCityInfo() {
+        List<Student> student = getStudents();
+        List<City> cities = getCities();
+        Map<Student, String> studentAndCityDescriptionMap = new HashMap<>();
+        studentAndCityDescriptionMap = student.stream()
+                .collect(Collectors.toMap(Function.identity(),
+                        s -> cities
+                                .stream()
+                                .filter(c -> c.getId() == s.getCityId())
+                                .map(City::getDescription)
+                        )
+                );
+        System.out.println();
     }
 }
 

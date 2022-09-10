@@ -1,10 +1,4 @@
 package com.teachmeskills.lesson20.entities;
-
-import com.teachmeskills.lesson20.Test;
-import com.teachmeskills.lesson20.exceptions.IdNotExistException;
-
-import java.util.List;
-
 public class Student {
     private int id;
     private String name;
@@ -68,24 +62,16 @@ public class Student {
         return classId;
     }
 
-    public void setClassId(int classId) throws IdNotExistException {
-        if (new Test().checkIfIDExistInSpecifiedTable("class", classId)) {
-            this.classId = classId;
-        } else {
-            throw new IdNotExistException("There is no such CLASS id in the database");
-        }
-    }
-
     public int getCityId() {
         return cityId;
     }
 
-    public void setCityId(int cityId) throws IdNotExistException {
-        if (new Test().checkIfIDExistInSpecifiedTable("city", cityId)) {
-            this.cityId = cityId;
-        } else {
-            throw new IdNotExistException("There is no such CITY id in the database");
-        }
+    public void setClassId(int classId) {
+        this.classId = classId;
+    }
+
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
     }
 
     @Override
@@ -97,7 +83,8 @@ public class Student {
                 ", gender=" + gender +
                 ", age=" + age +
                 ", height=" + height +
-                ", class_id=" + classId +
+                ", classId=" + classId +
+                ", cityId=" + cityId +
                 '}';
     }
 }

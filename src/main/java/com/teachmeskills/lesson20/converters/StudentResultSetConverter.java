@@ -12,6 +12,8 @@ public class StudentResultSetConverter {
             student.setId(resultSet.getInt("id"));
             student.setName(resultSet.getString("name"));
             student.setLastName(resultSet.getString("last_name"));
+            student.setClassId(resultSet.getInt("class_id"));
+            student.setCityId(resultSet.getInt("city_id"));
         } catch (SQLException e) {
             System.out.println(e);
         }
