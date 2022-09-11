@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Test {
+public class DatabaseController {
     private static final String GET_STUDENTS_SQL = "SELECT * FROM school.student";
     private static final String GET_CITIES_SQL = "SELECT * FROM school.city";
     private static final String INSERT_STUDENT_SQL = "INSERT INTO `school`.`student` (`name`, `last_name`, `gender`, " +

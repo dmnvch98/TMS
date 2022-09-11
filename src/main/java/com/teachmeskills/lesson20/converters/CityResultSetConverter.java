@@ -1,7 +1,6 @@
 package com.teachmeskills.lesson20.converters;
 
 import com.teachmeskills.lesson20.entities.City;
-import com.teachmeskills.lesson20.entities.Student;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +14,7 @@ public class CityResultSetConverter {
             city.setDescription(resultSet.getString("description"));
             city.setCountryId(resultSet.getInt("country_id"));
         } catch (SQLException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return city;
     }
